@@ -21,6 +21,8 @@ dotenv
 bcryptjs
 
 📂 Estructura del proyecto
+
+```bash
 inventory-backend/
 │
 ├── src/
@@ -51,9 +53,10 @@ inventory-backend/
 ├── server.js
 ├── .env
 ├── .gitignore
-├── README.md
 ├── package.json
-└── package-lock.json
+├── package-lock.json
+└── README.md
+
 
 🔐 Autenticación
 
