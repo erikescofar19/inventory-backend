@@ -1,8 +1,8 @@
 📦 Inventory API
 
-API REST para gestión de inventario con autenticación JWT, control de stock y registro de movimientos de entrada y salida.
+API REST para la gestión de inventarios con autenticación JWT, control de stock y registro de movimientos de entrada y salida.
 
-Este proyecto simula un sistema real de inventarios usado en negocios como cafeterías, tiendas o almacenes.
+Este proyecto simula un sistema real de inventarios utilizado en negocios como cafeterías, tiendas y pequeños almacenes.
 
 🚀 Tecnologías utilizadas
 
@@ -23,35 +23,48 @@ bcryptjs
 📂 Estructura del proyecto
 inventory-backend/
 │
-├── controllers/
-│   ├── product.controller.js
-│   ├── user.controller.js
-│   └── stockMovement.controller.js
+├── src/
+│   ├── controllers/
+│   │   ├── product.controller.js
+│   │   ├── user.controller.js
+│   │   └── stockMovement.controller.js
+│   │
+│   ├── routes/
+│   │   ├── product.routes.js
+│   │   ├── user.routes.js
+│   │   └── stockMovement.routes.js
+│   │
+│   ├── models/
+│   │   ├── product.js
+│   │   ├── user.js
+│   │   └── stockMovement.js
+│   │
+│   ├── middlewares/
+│   │   ├── auth.middleware.js
+│   │   └── admin.middleware.js
+│   │
+│   ├── config/
+│   │   └── swagger.js
+│   │
+│   └── app.js
 │
-├── routes/
-│   ├── product.routes.js
-│   ├── user.routes.js
-│   └── stockMovement.routes.js
-│
-├── models/
-│   ├── Product.js
-│   ├── User.js
-│   └── StockMovement.js
-│
-├── middlewares/
-│   ├── auth.middleware.js
-│   └── admin.middleware.js
-│
-├── swagger.js
-├── app.js
 ├── server.js
-└── README.md
+├── .env
+├── .gitignore
+├── README.md
+├── package.json
+└── package-lock.json
 
 🔐 Autenticación
 
 La API utiliza JWT Bearer Token.
 
-Inicia sesión en /api/users/login
+Flujo básico:
+
+Inicia sesión en:
+
+POST /api/users/login
+
 
 Obtén el token
 
@@ -59,25 +72,28 @@ Usa el token en los endpoints protegidos:
 
 Authorization: Bearer TU_TOKEN_AQUI
 
-👤 Roles
-
-admin
+👤 Roles y permisos
+🛠️ admin
 
 Crear, actualizar y eliminar productos
 
-Registrar movimientos de stock
+Registrar movimientos de entrada y salida
 
-usuario
+Consultar historial completo
+
+👁️ usuario
 
 Consultar productos
 
 Consultar historial de movimientos
 
 📌 Endpoints principales
+
 🧑 Usuarios
 Método	Endpoint	Descripción
 POST	/api/users/register	Registrar usuario
 POST	/api/users/login	Login y obtener token
+
 📦 Productos
 Método	Endpoint	Descripción
 GET	/api/products	Obtener todos los productos
@@ -86,10 +102,12 @@ GET	/api/products/alerts/low-stock	Productos con stock bajo
 POST	/api/products	Crear producto (admin)
 PUT	/api/products/:id	Actualizar producto (admin)
 DELETE	/api/products/:id	Eliminar producto (admin)
-🔄 Movimientos de Stock
+
+🔄 Movimientos de stock
 Método	Endpoint	Descripción
 POST	/api/stock	Registrar entrada o salida
 GET	/api/stock	Historial de movimientos
+
 🧾 Ejemplo de movimiento de stock
 {
   "productId": "65f123abc456def789012345",
@@ -142,9 +160,8 @@ http://localhost:4000
 ✅ Funcional
 ✅ Seguro
 ✅ Documentado
-✅ Listo para portafolio
 
 👨‍💻 Autor
+Erik Eduardo Escobar Farias
 
-EDERICK (Ed)
 Proyecto backend desarrollado como práctica profesional de Node.js, MongoDB y APIs REST.
