@@ -1,5 +1,7 @@
 import { Router } from "express";
-import { registerUser, loginUser } from "../controllers/user.controller.js";
+import { registerUser, loginUser, assignAdminRole } from "../controllers/user.controller.js";
+import authMiddleware from "../middlewares/auth.middleware.js";
+import { isAdmin } from "../middlewares/admin.middleware.js";
 
 const router = Router();
 
@@ -73,5 +75,33 @@ router.post("/register", registerUser);
  *         description: Credenciales incorrectas
  */
 router.post("/login", loginUser);
+
+/**
+ * @swagger
+ * /api/users/{id}/assign-admin:
+ *   patch:
+ *     summary: Asignar rol de admin a un usuario
+ *     tags: [Auth]
+ *     security:
+ *       - bearerAuth: []
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         required: true
+ *         schema:
+ *           type: string
+ *         description: ID del usuario a actualizar
+ *     responses:
+ *       200:
+ *         description: Rol de admin asignado correctamente
+ *       401:
+ *         description: No autorizado
+ *       403:
+ *         description: Solo administradores pueden asignar roles
+ *       404:
+ *         description: Usuario no encontrado
+ */
+// ✅ Ruta protegida: solo admin puede asignar rol
+router.patch("/:id/assign-admin", authMiddleware, isAdmin, assignAdminRole);
 
 export default router;

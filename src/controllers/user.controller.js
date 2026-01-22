@@ -4,7 +4,9 @@ import jwt from "jsonwebtoken";
 
 console.log("🔥 user.controller.js cargado");
 
+// ===========================
 // REGISTRO
+// ===========================
 export const registerUser = async (req, res) => {
   try {
     console.log("🧑 Registro de usuario");
@@ -12,7 +14,9 @@ export const registerUser = async (req, res) => {
     const { name, email, password } = req.body;
 
     if (!name || !email || !password) {
-      return res.status(400).json({ message: "Todos los campos son obligatorios" });
+      return res
+        .status(400)
+        .json({ message: "Todos los campos son obligatorios" });
     }
 
     const userExists = await User.findOne({ email });
@@ -27,6 +31,7 @@ export const registerUser = async (req, res) => {
       name,
       email,
       password: hashedPassword,
+      // role se asigna por default como "user"
     });
 
     res.status(201).json({
@@ -35,6 +40,7 @@ export const registerUser = async (req, res) => {
         id: user._id,
         name: user.name,
         email: user.email,
+        role: user.role,
       },
     });
   } catch (error) {
@@ -42,7 +48,9 @@ export const registerUser = async (req, res) => {
   }
 };
 
-// LOGIN
+// ===========================
+// LOGIN (🔥 CLAVE PARA ROLES)
+// ===========================
 export const loginUser = async (req, res) => {
   try {
     console.log("🔐 Login usuario");
@@ -50,35 +58,73 @@ export const loginUser = async (req, res) => {
     const { email, password } = req.body;
 
     if (!email || !password) {
-      return res.status(400).json({ message: "Todos los campos son obligatorios" });
+      return res
+        .status(400)
+        .json({ message: "Todos los campos son obligatorios" });
     }
 
     const user = await User.findOne({ email });
     if (!user) {
-      return res.status(400).json({ message: "Credenciales inválidas" });
+      return res.status(401).json({ message: "Credenciales inválidas" });
     }
 
     const isMatch = await bcrypt.compare(password, user.password);
     if (!isMatch) {
-      return res.status(400).json({ message: "Credenciales inválidas" });
+      return res.status(401).json({ message: "Credenciales inválidas" });
     }
 
     const token = jwt.sign(
-      { id: user._id, role: user.role },
+      {
+        id: user._id,
+        role: user.role, // 🔥 IMPORTANTE
+      },
       process.env.JWT_SECRET,
       { expiresIn: "1d" }
     );
 
-    res.json({
+    res.status(200).json({
       message: "Login exitoso",
       token,
       user: {
         id: user._id,
         name: user.name,
         email: user.email,
+        role: user.role, // 🔥 IMPORTANTE
       },
     });
   } catch (error) {
     res.status(500).json({ message: error.message });
+  }
+};
+
+// ===========================
+// ASIGNAR ROL ADMIN (SOLO ADMIN)
+// ===========================
+export const assignAdminRole = async (req, res) => {
+  try {
+    const { id } = req.params;
+
+    const user = await User.findById(id);
+    if (!user) {
+      return res.status(404).json({ message: "Usuario no encontrado" });
+    }
+
+    user.role = "admin";
+    await user.save();
+
+    res.json({
+      message: "Rol de admin asignado correctamente",
+      user: {
+        id: user._id,
+        name: user.name,
+        email: user.email,
+        role: user.role,
+      },
+    });
+  } catch (error) {
+    res.status(500).json({
+      message: "Error asignando rol",
+      error: error.message,
+    });
   }
 };

@@ -55,7 +55,10 @@ const router = Router();
  *         description: Error de validación
  *       401:
  *         description: No autorizado
+ *       403:
+ *         description: Acceso solo para administradores
  */
+// ✅ Ruta protegida con authMiddleware + isAdmin
 router.post("/", authMiddleware, isAdmin, createStockMovement);
 
 /**
@@ -78,6 +81,8 @@ router.post("/", authMiddleware, isAdmin, createStockMovement);
  *       401:
  *         description: No autorizado
  */
+// ✅ Ruta protegida solo con authMiddleware (todos los usuarios pueden ver el historial)
 router.get("/", authMiddleware, getStockMovements);
 
 export default router;
+

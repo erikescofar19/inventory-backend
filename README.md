@@ -1,28 +1,23 @@
+🌎 Read this in: [English](README.md) | [Español](README.es.md)
+
 📦 Inventory API
 
-API REST para la gestión de inventarios con autenticación JWT, control de stock y registro de movimientos de entrada y salida.
+REST API for inventory management with JWT authentication, stock control, and input/output stock movement tracking.
 
-Este proyecto simula un sistema real de inventarios utilizado en negocios como cafeterías, tiendas y pequeños almacenes.
+This project simulates a real-world inventory system used in businesses such as cafés, retail stores, and small warehouses.
 
-🚀 Tecnologías utilizadas
+🚀 Technologies Used
 
-Node.js
+- Node.js  
+- Express.js  
+- MongoDB + Mongoose  
+- JWT (JSON Web Token)  
+- Swagger (OpenAPI 3.0)  
+- dotenv  
+- bcryptjs  
 
-Express.js
+📂 Project Structure
 
-MongoDB + Mongoose
-
-JWT (JSON Web Token)
-
-Swagger (OpenAPI 3.0)
-
-dotenv
-
-bcryptjs
-
-📂 Estructura del proyecto
-
-```bash
 inventory-backend/
 │
 ├── src/
@@ -57,114 +52,118 @@ inventory-backend/
 ├── package-lock.json
 └── README.md
 
+🔐 Authentication
 
-🔐 Autenticación
+The API uses JWT Bearer Token authentication.
 
-La API utiliza JWT Bearer Token.
+Basic flow:
 
-Flujo básico:
+1. Login:
+   POST /api/users/login
 
-Inicia sesión en:
+2. Obtain the JWT token
 
-POST /api/users/login
+3. Use the token in protected endpoints:
+   Authorization: Bearer YOUR_TOKEN_HERE
 
+👤 Roles & Permissions
 
-Obtén el token
+🛠️ Admin
 
-Usa el token en los endpoints protegidos:
+- Create, update, and delete products  
+- Register stock input and output movements  
+- View full movement history  
 
-Authorization: Bearer TU_TOKEN_AQUI
+👁️ User
 
-👤 Roles y permisos
-🛠️ admin
+- View products  
+- View stock movement history  
 
-Crear, actualizar y eliminar productos
+📌 Main Endpoints
 
-Registrar movimientos de entrada y salida
+🧑 Users
 
-Consultar historial completo
+| Method | Endpoint | Description |
+|------|---------|-------------|
+| POST | /api/users/register | Register user |
+| POST | /api/users/login | Login and obtain token |
 
-👁️ usuario
+📦 Products
 
-Consultar productos
+| Method | Endpoint | Description |
+|------|---------|-------------|
+| GET | /api/products | Get all products |
+| GET | /api/products/:id | Get product by ID |
+| GET | /api/products/alerts/low-stock | Low stock alerts |
+| POST | /api/products | Create product (admin) |
+| PUT | /api/products/:id | Update product (admin) |
+| DELETE | /api/products/:id | Delete product (admin) |
 
-Consultar historial de movimientos
+🔄 Stock Movements
 
-📌 Endpoints principales
+| Method | Endpoint | Description |
+|------|---------|-------------|
+| POST | /api/stock | Register stock input or output |
+| GET | /api/stock | Stock movement history |
 
-🧑 Usuarios
-Método	Endpoint	Descripción
-POST	/api/users/register	Registrar usuario
-POST	/api/users/login	Login y obtener token
+🧾 Stock Movement Example
 
-📦 Productos
-Método	Endpoint	Descripción
-GET	/api/products	Obtener todos los productos
-GET	/api/products/:id	Obtener producto por ID
-GET	/api/products/alerts/low-stock	Productos con stock bajo
-POST	/api/products	Crear producto (admin)
-PUT	/api/products/:id	Actualizar producto (admin)
-DELETE	/api/products/:id	Eliminar producto (admin)
-
-🔄 Movimientos de stock
-Método	Endpoint	Descripción
-POST	/api/stock	Registrar entrada o salida
-GET	/api/stock	Historial de movimientos
-
-🧾 Ejemplo de movimiento de stock
+```json
 {
-  "productId": "65f123abc456def789012345",
+  "product": "65f123abc456def789012345",
   "type": "out",
   "quantity": 2,
-  "note": "Venta mostrador"
+  "note": "Counter sale"
 }
+📊 Business Rules
 
-📊 Reglas de negocio
+❌ Negative stock is not allowed
 
-❌ No se permite stock negativo
+✅ type only accepts: in or out
 
-✅ type solo acepta: in o out
+🔐 Protected endpoints require a JWT token
 
-🔐 Endpoints protegidos requieren token
+🧠 Stock is automatically updated when movements are registered
 
-🧠 El stock se actualiza automáticamente al registrar movimientos
+📖 Swagger Documentation
 
-📖 Documentación Swagger
-
-Disponible en:
+Available at:
 
 http://localhost:4000/api-docs
 
+From Swagger you can:
 
-Desde Swagger puedes:
+Test endpoints
 
-Probar endpoints
+Authenticate using JWT
 
-Autenticarte con JWT
+View schemas and responses
 
-Ver esquemas y respuestas
+⚙️ Environment Variables (.env)
 
-⚙️ Variables de entorno (.env)
 PORT=4000
-MONGO_URI=tu_uri_de_mongodb
-JWT_SECRET=tu_secreto
+MONGO_URI=your_mongodb_uri
+JWT_SECRET=your_secret
 
-▶️ Cómo ejecutar el proyecto
+▶️ How to Run the Project
+
+bash
+Copiar código
 npm install
 npm run dev
-
-
-Servidor disponible en:
+Server available at:
 
 http://localhost:4000
 
-🏁 Estado del proyecto
+🏁 Project Status
 
-✅ Funcional
-✅ Seguro
-✅ Documentado
+✅ Functional
+✅ Secure
+✅ Documented
+✅ Portfolio-ready
 
-👨‍💻 Autor
-Erik Eduardo Escobar Farias
+👨‍💻 Author
 
-Proyecto backend desarrollado como práctica profesional de Node.js, MongoDB y APIs REST.
+Erik Eduardo Escobar Farías
+
+Backend project developed as professional practice using Node.js, MongoDB, and REST APIs, focused on clean architecture, security, and real-world business rules.

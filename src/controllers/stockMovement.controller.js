@@ -8,11 +8,8 @@ export const createStockMovement = async (req, res) => {
   try {
     const { product, type, quantity, note } = req.body;
 
-    // Validaciones básicas
     if (!product || !type || quantity === undefined) {
-      return res.status(400).json({
-        message: "Datos incompletos",
-      });
+      return res.status(400).json({ message: "Datos incompletos" });
     }
 
     if (!["in", "out"].includes(type)) {
@@ -42,14 +39,12 @@ export const createStockMovement = async (req, res) => {
       });
     }
 
-    // Actualizar stock
-    if (type === "in") {
-      productFound.stock += quantity;
-    } else {
-      productFound.stock -= quantity;
-    }
+    // 🔥 Actualizar stock de forma atómica
+    const stockChange = type === "in" ? quantity : -quantity;
 
-    await productFound.save();
+    await Product.findByIdAndUpdate(product, {
+      $inc: { stock: stockChange },
+    });
 
     // Registrar movimiento
     const movement = await StockMovement.create({
@@ -81,7 +76,8 @@ export const getStockMovements = async (req, res) => {
     const movements = await StockMovement.find(filter)
       .populate("product", "name stock")
       .populate("user", "name email")
-      .sort({ createdAt: -1 });
+      .sort({ createdAt: -1 })
+      .lean();
 
     return res.json(movements);
   } catch (error) {
