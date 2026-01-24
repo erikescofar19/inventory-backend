@@ -76,30 +76,31 @@ Basic flow:
 
 📌 Main Endpoints
 
-🧑 Users
+### 🧑 Users
 
 | Method | Endpoint | Description |
-|------|---------|-------------|
-| POST | /api/users/register | Register user |
-| POST | /api/users/login | Login and obtain token |
+|--------|----------|-------------|
+| POST   | /api/users/register | Register user |
+| POST   | /api/users/login    | Login and obtain token |
 
-📦 Products
+### 📦 Products
 
 | Method | Endpoint | Description |
-|------|---------|-------------|
-| GET | /api/products | Get all products |
-| GET | /api/products/:id | Get product by ID |
-| GET | /api/products/alerts/low-stock | Low stock alerts |
-| POST | /api/products | Create product (admin) |
-| PUT | /api/products/:id | Update product (admin) |
+|--------|----------|-------------|
+| GET    | /api/products | Get all products |
+| GET    | /api/products/:id | Get product by ID |
+| GET    | /api/products/alerts/low-stock | Low stock alerts |
+| POST   | /api/products | Create product (admin) |
+| PUT    | /api/products/:id | Update product (admin) |
 | DELETE | /api/products/:id | Delete product (admin) |
 
-🔄 Stock Movements
+### 🔄 Stock Movements
 
 | Method | Endpoint | Description |
-|------|---------|-------------|
-| POST | /api/stock | Register stock input or output |
-| GET | /api/stock | Stock movement history |
+|--------|----------|-------------|
+| POST   | /api/stock | Register stock input or output |
+| GET    | /api/stock | Stock movement history |
+
 
 🧾 Stock Movement Example
 
