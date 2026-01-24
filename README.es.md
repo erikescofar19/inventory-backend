@@ -1,11 +1,10 @@
 🌎 Leer en: [Español](README.es.md) | [English](README.md)
 
-
 📦 Inventory API
 
 API REST para la gestión de inventarios con autenticación JWT, control de stock y registro de movimientos de entrada y salida.
 
-Este proyecto simula un sistema real de inventarios utilizado en negocios como cafeterías, tiendas y pequeños almacenes.
+Este proyecto simula un sistema real de inventarios utilizado en cafeterías, tiendas y pequeños almacenes, aplicando buenas prácticas de backend, seguridad y reglas de negocio.
 
 🚀 Tecnologías utilizadas
 
@@ -23,7 +22,6 @@ dotenv
 
 bcryptjs
 
-📂 Estructura del proyecto
 inventory-backend/
 │
 ├── src/
@@ -157,8 +155,11 @@ http://localhost:4000
 🏁 Estado del proyecto
 
 ✅ Funcional
+
 ✅ Seguro
+
 ✅ Documentado
+
 ✅ Listo para portafolio
 
 👨‍💻 Autor
