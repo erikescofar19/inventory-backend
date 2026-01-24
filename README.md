@@ -46,6 +46,7 @@ inventory-backend/
 ├── package-lock.json
 ├── README.md
 └── README.es.md
+```
 
 🔐 Authentication
 
@@ -83,6 +84,8 @@ Basic flow:
 | POST   | /api/users/register | Register user |
 | POST   | /api/users/login    | Login and obtain token |
 
+---
+
 ## 📦 Products
 
 | Method | Endpoint | Description |
@@ -93,6 +96,8 @@ Basic flow:
 | POST   | /api/products | Create product (admin) |
 | PUT    | /api/products/:id | Update product (admin) |
 | DELETE | /api/products/:id | Delete product (admin) |
+
+---
 
 ## 🔄 Stock Movements
 
