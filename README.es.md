@@ -82,32 +82,32 @@ Consultar historial de movimientos
 
 ### 🧑 Users
 
-| Method | Endpoint | Description |
+| Método | Endpoint | Descripción |
 |--------|----------|-------------|
-| POST | /api/users/register | Register user |
-| POST | /api/users/login | Login and obtain token |
+| POST | /api/users/register | Registrar usuario |
+| POST | /api/users/login | Iniciar sesión y obtener token |
 
 ---
 
 ### 📦 Products
 
-| Method | Endpoint | Description |
+| Método | Endpoint | Descripción |
 |--------|----------|-------------|
-| GET | /api/products | Get all products |
-| GET | /api/products/:id | Get product by ID |
-| GET | /api/products/alerts/low-stock | Low stock alerts |
-| POST | /api/products | Create product (admin) |
-| PUT | /api/products/:id | Update product (admin) |
-| DELETE | /api/products/:id | Delete product (admin) |
+| GET | /api/products | Obtener producto por ID |
+| GET | /api/products/:id | Obtener producto por ID |
+| GET | /api/products/alerts/low-stock | Productos con stock bajo |
+| POST | /api/products | Crear producto (admin) |
+| PUT | /api/products/:id | Actualizar producto (admin) |
+| DELETE | /api/products/:id | Eliminar producto (admin) |
 
 ---
 
 ### 🔄 Stock Movements
 
-| Method | Endpoint | Description |
+| Método | Endpoint | Descripción |
 |--------|----------|-------------|
-| POST | /api/stock | Register stock input or output |
-| GET | /api/stock | Stock movement history |
+| POST | /api/stock | Registrar entrada o salida de stock |
+| GET | /api/stock | Historial de movimientos de stock |
 
 
 🧾 Ejemplo de movimiento de stock
