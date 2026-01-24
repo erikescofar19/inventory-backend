@@ -76,14 +76,14 @@ Basic flow:
 
 📌 Main Endpoints
 
-### 🧑 Users
+## 🧑 Users
 
 | Method | Endpoint | Description |
 |--------|----------|-------------|
 | POST   | /api/users/register | Register user |
 | POST   | /api/users/login    | Login and obtain token |
 
-### 📦 Products
+## 📦 Products
 
 | Method | Endpoint | Description |
 |--------|----------|-------------|
@@ -94,7 +94,7 @@ Basic flow:
 | PUT    | /api/products/:id | Update product (admin) |
 | DELETE | /api/products/:id | Delete product (admin) |
 
-### 🔄 Stock Movements
+## 🔄 Stock Movements
 
 | Method | Endpoint | Description |
 |--------|----------|-------------|
