@@ -18,39 +18,34 @@ This project simulates a real-world inventory system used in businesses such as 
 
 📂 Project Structure
 
+```bash
 inventory-backend/
-│
 ├── src/
 │   ├── controllers/
 │   │   ├── product.controller.js
 │   │   ├── user.controller.js
 │   │   └── stockMovement.controller.js
-│   │
 │   ├── routes/
 │   │   ├── product.routes.js
 │   │   ├── user.routes.js
 │   │   └── stockMovement.routes.js
-│   │
 │   ├── models/
 │   │   ├── product.js
 │   │   ├── user.js
 │   │   └── stockMovement.js
-│   │
 │   ├── middlewares/
 │   │   ├── auth.middleware.js
 │   │   └── admin.middleware.js
-│   │
 │   ├── config/
 │   │   └── swagger.js
-│   │
 │   └── app.js
-│
 ├── server.js
 ├── .env
 ├── .gitignore
 ├── package.json
 ├── package-lock.json
-└── README.md
+├── README.md
+└── README.es.md
 
 🔐 Authentication
 
