@@ -46,6 +46,7 @@ inventory-backend/
 ├── package-lock.json
 ├── README.md
 └── README.es.md
+```
 
 🔐 Autenticación
 
@@ -79,32 +80,39 @@ Consultar historial de movimientos
 
 📌 Endpoints principales
 
-🧑 Usuarios
+### 🧑 Users
 
-| Método | Endpoint            | Descripción           |
-| ------ | ------------------- | --------------------- |
-| POST   | /api/users/register | Registrar usuario     |
-| POST   | /api/users/login    | Login y obtener token |
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| POST | /api/users/register | Register user |
+| POST | /api/users/login | Login and obtain token |
 
-📦 Productos
+---
 
-| Método | Endpoint                       | Descripción                 |
-| ------ | ------------------------------ | --------------------------- |
-| GET    | /api/products                  | Obtener todos los productos |
-| GET    | /api/products/:id              | Obtener producto por ID     |
-| GET    | /api/products/alerts/low-stock | Productos con stock bajo    |
-| POST   | /api/products                  | Crear producto (admin)      |
-| PUT    | /api/products/:id              | Actualizar producto (admin) |
-| DELETE | /api/products/:id              | Eliminar producto (admin)   |
+### 📦 Products
 
-🔄 Movimientos de stock
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| GET | /api/products | Get all products |
+| GET | /api/products/:id | Get product by ID |
+| GET | /api/products/alerts/low-stock | Low stock alerts |
+| POST | /api/products | Create product (admin) |
+| PUT | /api/products/:id | Update product (admin) |
+| DELETE | /api/products/:id | Delete product (admin) |
 
-| Método | Endpoint   | Descripción                |
-| ------ | ---------- | -------------------------- |
-| POST   | /api/stock | Registrar entrada o salida |
-| GET    | /api/stock | Historial de movimientos   |
+---
+
+### 🔄 Stock Movements
+
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| POST | /api/stock | Register stock input or output |
+| GET | /api/stock | Stock movement history |
+
 
 🧾 Ejemplo de movimiento de stock
+
+```json
 
 {
   "product": "65f123abc456def789012345",
