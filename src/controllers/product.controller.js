@@ -1,14 +1,14 @@
 import Product from "../models/product.js";
 
-console.log("🔥 product.controller.js cargado");
-console.log("🔔 getLowStockProducts llamado");
+console.log(" product.controller.js cargado");
+console.log(" getLowStockProducts llamado");
 
 // ======================
 // Crear producto
 // ======================
 export const createProduct = async (req, res) => {
   try {
-    console.log("🚀 POST /api/products llamado");
+    console.log(" POST /api/products llamado");
     console.log("BODY:", req.body);
 
     const product = await Product.create(req.body);
@@ -23,7 +23,7 @@ export const createProduct = async (req, res) => {
 // ======================
 export const getProducts = async (req, res) => {
   try {
-    console.log("🚀 GET /api/products llamado");
+    console.log(" GET /api/products llamado");
 
     const products = await Product.find();
     res.json(products);
@@ -56,7 +56,7 @@ export const updateProduct = async (req, res) => {
   try {
     const { stock } = req.body;
 
-    // ❌ No permitir stock negativo
+    //  No permitir stock negativo
     if (stock !== undefined && stock < 0) {
       return res.status(400).json({
         message: "El stock no puede ser negativo",
@@ -92,7 +92,7 @@ export const getLowStockProducts = async (req, res) => {
 
     return res.status(200).json(products);
   } catch (error) {
-    console.error("❌ Error en low stock:", error);
+    console.error(" Error en low stock:", error);
     return res.status(500).json({
       message: "Error al obtener productos con stock bajo"
     });
@@ -104,7 +104,7 @@ export const getLowStockProducts = async (req, res) => {
 // ======================
 export const deleteProduct = async (req, res) => {
   try {
-    console.log("🗑️ DELETE /api/products llamado");
+    console.log(" DELETE /api/products llamado");
     console.log("ID:", req.params.id);
 
     const product = await Product.findByIdAndDelete(req.params.id);

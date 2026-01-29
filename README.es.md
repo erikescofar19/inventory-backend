@@ -1,12 +1,12 @@
-🌎 Leer en: [Español](README.es.md) | [English](README.md)
+## Leer en: [Español](README.es.md) | [English](README.md)
 
-📦 Inventory API
+## Inventory API
 
 API REST para la gestión de inventarios con autenticación JWT, control de stock y registro de movimientos de entrada y salida.
 
 Este proyecto simula un sistema real de inventarios utilizado en negocios como cafeterías, tiendas y pequeños almacenes.
 
-🚀 Tecnologías utilizadas
+## Tecnologías utilizadas
 
 - Node.js  
 - Express.js  
@@ -16,7 +16,7 @@ Este proyecto simula un sistema real de inventarios utilizado en negocios como c
 - dotenv  
 - bcryptjs  
 
-📂 Estructura del proyecto
+## Estructura del proyecto
 
 ```bash
 inventory-backend/
@@ -48,7 +48,7 @@ inventory-backend/
 └── README.es.md
 ```
 
-🔐 Autenticación
+## Autenticación
 
 La API utiliza autenticación JWT (Bearer Token).
 
@@ -62,9 +62,9 @@ Obtén el token JWT
 Usa el token en los endpoints protegidos:
 Authorization: Bearer TU_TOKEN_AQUI
 
-👤 Roles y permisos
+## Roles y permisos
 
-🛠️ Admin
+ Admin
 
 Crear, actualizar y eliminar productos
 
@@ -72,15 +72,15 @@ Registrar movimientos de entrada y salida de stock
 
 Consultar el historial completo de movimientos
 
-👁️ Usuario
+## Usuario
 
 Consultar productos
 
 Consultar historial de movimientos
 
-📌 Endpoints principales
+## Endpoints principales
 
-### 🧑 Users
+###  Users
 
 | Método | Endpoint | Descripción |
 |--------|----------|-------------|
@@ -89,7 +89,7 @@ Consultar historial de movimientos
 
 ---
 
-### 📦 Products
+###  Products
 
 | Método | Endpoint | Descripción |
 |--------|----------|-------------|
@@ -102,7 +102,7 @@ Consultar historial de movimientos
 
 ---
 
-### 🔄 Stock Movements
+###  Stock Movements
 
 | Método | Endpoint | Descripción |
 |--------|----------|-------------|
@@ -110,7 +110,7 @@ Consultar historial de movimientos
 | GET | /api/stock | Historial de movimientos de stock |
 
 
-🧾 Ejemplo de movimiento de stock
+### Ejemplo de movimiento de stock
 
 ```json
 
@@ -122,17 +122,17 @@ Consultar historial de movimientos
 }
 
 
-📊 Reglas de negocio
+- Reglas de negocio
 
-❌ No se permite stock negativo
+- No se permite stock negativo
 
-✅ El campo type solo acepta: in o out
+- El campo type solo acepta: in o out
 
-🔐 Los endpoints protegidos requieren un token JWT
+- Los endpoints protegidos requieren un token JWT
 
-🧠 El stock se actualiza automáticamente al registrar movimientos
+- El stock se actualiza automáticamente al registrar movimientos
 
-📖 Documentación Swagger
+### Documentación Swagger
 
 Disponible en:
 
@@ -146,13 +146,13 @@ Autenticarte con JWT
 
 Ver esquemas y respuestas
 
-⚙️ Variables de entorno (.env)
+### Variables de entorno (.env)
 
 PORT=4000
 MONGO_URI=tu_uri_de_mongodb
 JWT_SECRET=tu_secreto
 
-▶️ Cómo ejecutar el proyecto
+### Cómo ejecutar el proyecto
 
 npm install
 npm run dev
@@ -162,15 +162,15 @@ Servidor disponible en:
 
 http://localhost:4000
 
-🏁 Estado del proyecto
+### Estado del proyecto
 
-✅ Funcional
-✅ Seguro
-✅ Documentado
-✅ Listo para portafolio
+- Funcional
+- Seguro
+- Documentado
+- Listo para portafolio
 
-👨‍💻 Autor
+### Autor
 
-Erik Eduardo Escobar Farías
+Erik Eduardo Escobar Farias
 
 Proyecto backend desarrollado como práctica profesional utilizando Node.js, MongoDB y APIs REST, enfocado en arquitectura limpia, seguridad y reglas de negocio reales.

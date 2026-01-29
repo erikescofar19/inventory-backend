@@ -1,12 +1,12 @@
-🌎 Read this in: [English](README.md) | [Español](README.es.md)
+## Read this in: [English](README.md) | [Español](README.es.md)
 
-📦 Inventory API
+## Inventory API
 
 REST API for inventory management with JWT authentication, stock control, and input/output stock movement tracking.
 
 This project simulates a real-world inventory system used in businesses such as cafés, retail stores, and small warehouses.
 
-🚀 Technologies Used
+## Technologies Used
 
 - Node.js  
 - Express.js  
@@ -16,7 +16,7 @@ This project simulates a real-world inventory system used in businesses such as 
 - dotenv  
 - bcryptjs  
 
-📂 Project Structure
+## Project Structure
 
 ```bash
 inventory-backend/
@@ -48,7 +48,7 @@ inventory-backend/
 └── README.es.md
 ```
 
-🔐 Authentication
+## Authentication
 
 The API uses JWT Bearer Token authentication.
 
@@ -62,22 +62,22 @@ Basic flow:
 3. Use the token in protected endpoints:
    Authorization: Bearer YOUR_TOKEN_HERE
 
-👤 Roles & Permissions
+## Roles & Permissions
 
-🛠️ Admin
+ Admin
 
 - Create, update, and delete products  
 - Register stock input and output movements  
 - View full movement history  
 
-👁️ User
+## User
 
 - View products  
 - View stock movement history  
 
-📌 Main Endpoints
+## Main Endpoints
 
-## 🧑 Users
+##  Users
 
 | Method | Endpoint | Description |
 |--------|----------|-------------|
@@ -86,7 +86,7 @@ Basic flow:
 
 ---
 
-## 📦 Products
+##  Products
 
 | Method | Endpoint | Description |
 |--------|----------|-------------|
@@ -99,7 +99,7 @@ Basic flow:
 
 ---
 
-## 🔄 Stock Movements
+##  Stock Movements
 
 | Method | Endpoint | Description |
 |--------|----------|-------------|
@@ -107,7 +107,7 @@ Basic flow:
 | GET    | /api/stock | Stock movement history |
 
 
-🧾 Stock Movement Example
+## Stock Movement Example
 
 ```json
 {
@@ -116,17 +116,17 @@ Basic flow:
   "quantity": 2,
   "note": "Counter sale"
 }
-📊 Business Rules
+- Business Rules
 
-❌ Negative stock is not allowed
+- Negative stock is not allowed
 
-✅ type only accepts: in or out
+- type only accepts: in or out
 
-🔐 Protected endpoints require a JWT token
+- Protected endpoints require a JWT token
 
-🧠 Stock is automatically updated when movements are registered
+- Stock is automatically updated when movements are registered
 
-📖 Swagger Documentation
+- Swagger Documentation
 
 Available at:
 
@@ -140,13 +140,13 @@ Authenticate using JWT
 
 View schemas and responses
 
-⚙️ Environment Variables (.env)
+## Environment Variables (.env)
 
 PORT=4000
 MONGO_URI=your_mongodb_uri
 JWT_SECRET=your_secret
 
-▶️ How to Run the Project
+## How to Run the Project
 
 bash
 Copiar código
@@ -156,14 +156,14 @@ Server available at:
 
 http://localhost:4000
 
-🏁 Project Status
+## Project Status
 
-✅ Functional
-✅ Secure
-✅ Documented
-✅ Portfolio-ready
+- Functional
+- Secure
+- Documented
+- Portfolio-ready
 
-👨‍💻 Author
+## Author
 
 Erik Eduardo Escobar Farías
 

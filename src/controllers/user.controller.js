@@ -2,14 +2,14 @@ import User from "../models/user.js";
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 
-console.log("🔥 user.controller.js cargado");
+console.log(" user.controller.js cargado");
 
 // ===========================
 // REGISTRO
 // ===========================
 export const registerUser = async (req, res) => {
   try {
-    console.log("🧑 Registro de usuario");
+    console.log(" Registro de usuario");
 
     const { name, email, password } = req.body;
 
@@ -49,11 +49,11 @@ export const registerUser = async (req, res) => {
 };
 
 // ===========================
-// LOGIN (🔥 CLAVE PARA ROLES)
+// LOGIN ( CLAVE PARA ROLES)
 // ===========================
 export const loginUser = async (req, res) => {
   try {
-    console.log("🔐 Login usuario");
+    console.log(" Login usuario");
 
     const { email, password } = req.body;
 
@@ -76,7 +76,7 @@ export const loginUser = async (req, res) => {
     const token = jwt.sign(
       {
         id: user._id,
-        role: user.role, // 🔥 IMPORTANTE
+        role: user.role, 
       },
       process.env.JWT_SECRET,
       { expiresIn: "1d" }
@@ -89,7 +89,7 @@ export const loginUser = async (req, res) => {
         id: user._id,
         name: user.name,
         email: user.email,
-        role: user.role, // 🔥 IMPORTANTE
+        role: user.role,  
       },
     });
   } catch (error) {

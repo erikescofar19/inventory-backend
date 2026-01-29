@@ -57,7 +57,7 @@ export const createStockMovement = async (req, res) => {
 
     return res.status(201).json(movement);
   } catch (error) {
-    console.error("❌ Error stock movement:", error);
+    console.error(" Error stock movement:", error);
     return res.status(500).json({
       message: "Error al registrar movimiento de stock",
     });
@@ -81,7 +81,7 @@ export const getStockMovements = async (req, res) => {
 
     return res.json(movements);
   } catch (error) {
-    console.error("❌ Error obtener movimientos:", error);
+    console.error(" Error obtener movimientos:", error);
     return res.status(500).json({
       message: "Error al obtener movimientos de stock",
     });
