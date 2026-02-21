@@ -6,6 +6,15 @@ API REST para la gestión de inventarios con autenticación JWT, control de stoc
 
 Este proyecto simula un sistema real de inventarios utilizado en negocios como cafeterías, tiendas y pequeños almacenes.
 
+##  Despliegue en Producción
+
+ **URL Base de la API:**  
+[https://inventory-backend-1-90w2.onrender.com](https://inventory-backend-1-90w2.onrender.com)
+
+ **Documentación Swagger:**  
+[Ver Documentación de la API](https://inventory-backend-1-90w2.onrender.com/api/docs/)
+
+
 ## Tecnologías utilizadas
 
 - Node.js  
@@ -120,7 +129,7 @@ Consultar historial de movimientos
   "quantity": 2,
   "note": "Venta mostrador"
 }
-
+```
 
 - Reglas de negocio
 
@@ -134,7 +143,7 @@ Consultar historial de movimientos
 
 ### Documentación Swagger
 
-Disponible en:
+Disponible localmente en:
 
 http://localhost:4000/api-docs
 
