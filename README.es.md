@@ -158,7 +158,9 @@ Ver esquemas y respuestas
 ### Variables de entorno (.env)
 
 PORT=4000
+
 MONGO_URI=tu_uri_de_mongodb
+
 JWT_SECRET=tu_secreto
 
 ### Cómo ejecutar el proyecto
