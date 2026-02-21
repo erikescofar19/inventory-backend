@@ -125,6 +125,8 @@ Basic flow:
   "quantity": 2,
   "note": "Counter sale"
 }
+```
+
 - Business Rules
 
 - Negative stock is not allowed
