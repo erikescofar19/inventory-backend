@@ -6,6 +6,15 @@ REST API for inventory management with JWT authentication, stock control, and in
 
 This project simulates a real-world inventory system used in businesses such as cafés, retail stores, and small warehouses.
 
+## Live Deployment
+
+**API Base URL:**  
+[https://inventory-backend-1-90w2.onrender.com](https://inventory-backend-1-90w2.onrender.com)
+
+**Swagger Documentation:**  
+[Open API Docs](https://inventory-backend-1-90w2.onrender.com/api/docs/)
+
+
 ## Technologies Used
 
 - Node.js  
@@ -128,7 +137,7 @@ Basic flow:
 
 - Swagger Documentation
 
-Available at:
+## Available locally at:
 
 http://localhost:4000/api-docs
 
@@ -165,6 +174,6 @@ http://localhost:4000
 
 ## Author
 
-Erik Eduardo Escobar Farías
+Erik Eduardo Escobar Farias
 
 Backend project developed as professional practice using Node.js, MongoDB, and REST APIs, focused on clean architecture, security, and real-world business rules.
