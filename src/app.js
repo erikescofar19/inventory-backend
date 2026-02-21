@@ -11,15 +11,32 @@ import stockMovementRoutes from "./routes/stockMovement.routes.js";
 const app = express();
 
 // ======================
-// MIDDLEWARES
+// CORS CONFIG
 // ======================
+const allowedOrigins = [
+  "http://localhost:5174", // desarrollo local
+  "https://inventory-frontend-eight-pink.vercel.app", // producción Vercel
+];
+
 app.use(
   cors({
-    origin: "http://localhost:5174",
+    origin: function (origin, callback) {
+      // Permitir requests sin origin (Postman, curl, etc.)
+      if (!origin) return callback(null, true);
+
+      if (allowedOrigins.includes(origin)) {
+        callback(null, true);
+      } else {
+        callback(new Error("Not allowed by CORS"));
+      }
+    },
     credentials: true,
   })
 );
 
+// ======================
+// MIDDLEWARES
+// ======================
 app.use(express.json({ limit: "10mb" }));
 
 // ======================
